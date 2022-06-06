@@ -12,6 +12,7 @@ public class Sorters {
 	
 	/**
 	 * Sorts the specified array of numbers using the quick sort algorithm.
+	 *
 	 * @param numbers The array of numbers to sort.
 	 */
 	public static void quickSort(int[] numbers) {
@@ -21,8 +22,9 @@ public class Sorters {
 	
 	/**
 	 * Sorts the specified array of numbers using the quick sort algorithm.
-	 * @param numbers The array of numbers to sort.
-	 * @param lowIndex The low index of the array.
+	 *
+	 * @param numbers   The array of numbers to sort.
+	 * @param lowIndex  The low index of the array.
 	 * @param highIndex The high index of the array.
 	 */
 	private static void quickSort(int[] numbers, int lowIndex, int highIndex) {
@@ -42,10 +44,11 @@ public class Sorters {
 	
 	/**
 	 * Partitions the array around the pivot.
-	 * @param array The array to partition.
-	 * @param lowIndex The low index of the array.
+	 *
+	 * @param array     The array to partition.
+	 * @param lowIndex  The low index of the array.
 	 * @param highIndex The high index of the array.
-	 * @param pivot The pivot to partition around.
+	 * @param pivot     The pivot to partition around.
 	 * @return The index of the pivot.
 	 */
 	private static int quickPartition(int[] array, int lowIndex, int highIndex, int pivot) {
@@ -82,9 +85,10 @@ public class Sorters {
 	
 	/**
 	 * Swaps two elements in an array.
+	 *
 	 * @param numbers The array of numbers.
-	 * @param index1 The index of the first element.
-	 * @param index2 The index of the second element.
+	 * @param index1  The index of the first element.
+	 * @param index2  The index of the second element.
 	 */
 	private static void quickSwap(int[] numbers, int index1, int index2) {
 		
@@ -96,6 +100,7 @@ public class Sorters {
 	
 	/**
 	 * Sorts the specified array of numbers using the merge sort algorithm.
+	 *
 	 * @param numbers The array of numbers to sort.
 	 */
 	public static void mergeSort(int[] numbers) {
@@ -122,8 +127,9 @@ public class Sorters {
 	
 	/**
 	 * Merge two halves of an array.
-	 * @param numbers The array to merge.
-	 * @param leftHalf The left half of the array.
+	 *
+	 * @param numbers   The array to merge.
+	 * @param leftHalf  The left half of the array.
 	 * @param rightHalf The right half of the array.
 	 */
 	private static void merge(int[] numbers, int[] leftHalf, int[] rightHalf) {
@@ -170,6 +176,7 @@ public class Sorters {
 	
 	/**
 	 * Sorts the given array using the insertion sort algorithm.
+	 *
 	 * @param numbers The array to sort.
 	 */
 	public static void insertionSort(int[] numbers) {
@@ -193,6 +200,7 @@ public class Sorters {
 	
 	/**
 	 * Sorts the given array using the bubble sort algorithm.
+	 *
 	 * @param numbers The array to sort.
 	 */
 	public static void bubbleSort(int[] numbers) {
@@ -221,6 +229,7 @@ public class Sorters {
 	
 	/**
 	 * Sorts the given array using the bogo sort algorithm.
+	 *
 	 * @param numbers The array to sort.
 	 */
 	public static void bogoSort(List<Integer> numbers) {
@@ -233,6 +242,7 @@ public class Sorters {
 	
 	/**
 	 * Checks if the list is sorted.
+	 *
 	 * @param numbers The list to check.
 	 * @return True if the list is sorted, false otherwise.
 	 */
@@ -256,7 +266,7 @@ public class Sorters {
 	 * Search a sorted array for a given value.
 	 *
 	 * @param numbers The sorted array.
-	 * @param target The value to search for.
+	 * @param target  The value to search for.
 	 * @return The index of the target value, or -1 if it is not found.
 	 */
 	public static int binarySearch(int[] numbers, int target) {
@@ -266,6 +276,7 @@ public class Sorters {
 	
 	/**
 	 * Get the largest number in an array.
+	 *
 	 * @param numbers The array of numbers.
 	 * @return The largest number in the array.
 	 */
@@ -276,6 +287,7 @@ public class Sorters {
 	
 	/**
 	 * Get the smallest number in an array.
+	 *
 	 * @param numbers The array of numbers.
 	 * @return The smallest number in the array.
 	 */

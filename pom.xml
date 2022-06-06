@@ -20,4 +20,23 @@
 			<url>https://maven.pkg.github.com/BastianAsmussen/Utility</url>
 		</repository>
 	</distributionManagement>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.24</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.lambdaworks</groupId>
+			<artifactId>scrypt</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.warrenstrange</groupId>
+			<artifactId>googleauth</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+	</dependencies>
 </project>
