@@ -26,7 +26,7 @@ import java.util.Arrays;
  * A utility class for all security systems on used by Asmussen Technology.
  * @author Bastian Almar Wolsgaard Asmussen (BastianA)
  * @author Casper Agerskov Madsen (consoleBeep)
- * @version 1.0.6
+ * @version 1.1.0
  * @since 1.0.0
  * @see #MAX_PASSWORD_LENGTH
  * @see #MIN_PASSWORD_LENGTH
@@ -414,22 +414,49 @@ public final class Security {
 	
 	/**
 	 * Validate a given credit card number using the Luhn algorithm.
-	 * Input must be an integer.
 	 * Input must have a remainder of 0 after sum is divided by 10.
-	 * Input must be between 13 and 16 digits.
-	 *
+
 	 * @param creditCard The credit card number to validate.
 	 * @return True if it is a valid credit card number otherwise it returns false.
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 */
 	public boolean validateCreditCard(String creditCard) {
 		
-		final boolean[] flag = {(creditCard.length() & 1) == 1};
+		int evenSum = 0;
+		int oddSum = 0;
 		
-		return Arrays.stream(creditCard.split(""))
-				.map(Integer::parseInt)
-				.mapToInt(value -> value)
-				.map(i -> ((flag[0] ^= true) ? (i * 2 - 1) % 9 + 1 : i))
-				.sum() % 10 == 0;
+		for (int i = creditCardNumber.replaceAll(" ", "").length() - 1; i >= 0; i--) {
+			
+			int n = Integer.parseInt(String.valueOf(creditCardNumber.charAt(i)));
+			
+			if (isEven(i)) {
+				
+				n = n * 2;
+				
+				if (n > 9) {
+					
+					String[] nString = String.valueOf(n).split("");
+					
+					for (String number : nString)
+						
+						evenSum += Integer.parseInt(number);
+					
+				} else {
+					
+					evenSum += n;
+				}
+				
+			} else {
+				
+				oddSum += n;
+			}
+		}
+		
+		return (evenSum + oddSum) % 10 == 0;
+	}
+	
+	private static boolean isEven(int n) {
+		
+		return n % 2 == 0;
 	}
 }
