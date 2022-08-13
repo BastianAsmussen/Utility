@@ -431,7 +431,7 @@ public final class Security {
 			
 			if (isEven(i)) {
 				
-				n = n * 2;
+				n *= 2;
 				
 				if (n > 9) {
 					
