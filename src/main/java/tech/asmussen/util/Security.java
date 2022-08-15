@@ -2,14 +2,12 @@ package tech.asmussen.util;
 
 import com.lambdaworks.crypto.SCryptUtil;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
-
 import lombok.Data;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -20,14 +18,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.SecureRandom;
-import java.util.Arrays;
 
 /**
  * A utility class for all security systems on used by Asmussen Technology.
+ *
  * @author Bastian Almar Wolsgaard Asmussen (BastianA)
  * @author Casper Agerskov Madsen (consoleBeep)
  * @version 1.1.0
- * @since 1.0.0
  * @see #MAX_PASSWORD_LENGTH
  * @see #MIN_PASSWORD_LENGTH
  * @see #generateKeyPair()
@@ -51,6 +48,7 @@ import java.util.Arrays;
  * @see #validatePassword(String)
  * @see #validateEmail(String)
  * @see #validateCreditCard(String)
+ * @since 1.0.0
  */
 @Data
 public final class Security {
@@ -68,6 +66,11 @@ public final class Security {
 	 * @since 1.0.2
 	 */
 	public static final int MIN_PASSWORD_LENGTH = 8;
+	
+	private static boolean isEven(int n) {
+		
+		return n % 2 == 0;
+	}
 	
 	/**
 	 * Generate a keypair of size 2,048 and return it.
@@ -415,7 +418,7 @@ public final class Security {
 	/**
 	 * Validate a given credit card number using the Luhn algorithm.
 	 * Input must have a remainder of 0 after sum is divided by 10.
-
+	 *
 	 * @param creditCard The credit card number to validate.
 	 * @return True if it is a valid credit card number otherwise it returns false.
 	 * @since 1.1.0
@@ -425,9 +428,9 @@ public final class Security {
 		int evenSum = 0;
 		int oddSum = 0;
 		
-		for (int i = creditCardNumber.replaceAll(" ", "").length() - 1; i >= 0; i--) {
+		for (int i = creditCard.replaceAll(" ", "").length() - 1; i >= 0; i--) {
 			
-			int n = Integer.parseInt(String.valueOf(creditCardNumber.charAt(i)));
+			int n = Integer.parseInt(String.valueOf(creditCard.charAt(i)));
 			
 			if (isEven(i)) {
 				
@@ -453,10 +456,5 @@ public final class Security {
 		}
 		
 		return (evenSum + oddSum) % 10 == 0;
-	}
-	
-	private static boolean isEven(int n) {
-		
-		return n % 2 == 0;
 	}
 }
